@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Move demo to gif file.
+
 ## 0.0.4
 
 - Include new package.

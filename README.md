@@ -2,9 +2,7 @@
 
 A simple cached image provider for S5 CID's
 
-<video autoplay loop muted>
-  <source src="https://raw.githubusercontent.com/s5-dev/cached_s5_image/main/static/demo.mp4" type="video/mp4">
-</video>
+![](static/demo.gif)
 
 ### Usage
 
