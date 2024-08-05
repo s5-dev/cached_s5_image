@@ -1,4 +1,4 @@
-import 'package:example/logger.dart';
+import 'package:cached_s5_image_example/src/logger.dart';
 import 'package:hive/hive.dart';
 import 'package:s5/s5.dart';
 

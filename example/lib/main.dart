@@ -1,5 +1,6 @@
 import 'package:cached_s5_image/main.dart';
-import 'package:example/s5.dart';
+import 'package:cached_s5_image_example/src/s5.dart';
+import 'package:cached_s5_manager/cached_s5_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:s5/s5.dart';
@@ -29,11 +30,13 @@ class Demo extends StatefulWidget {
 
 class _DemoState extends State<Demo> {
   String? cid;
-  final TextEditingController _controller = TextEditingController(
+  final TextEditingController _cidController = TextEditingController(
       text: "z2H7AJ1Pt8FdqG5UNzt4ffEhMY28c2z3K13TGf9fGcCRRwN7kS5B");
+  final TextEditingController _thumhashController =
+      TextEditingController(text: "mtcJLYbGWGaPeYiLl4dndYaAdgdY");
   S5? s5;
   Logger logger = Logger();
-  CachedS5ImageManager cacheManager = CachedS5ImageManager();
+  CachedS5Manager cacheManager = CachedS5Manager();
   @override
   void initState() {
     _initS5();
@@ -46,6 +49,7 @@ class _DemoState extends State<Demo> {
   }
 
   void _initS5() async {
+    // this is an EXAMPLE s5 node, use your own for maximum performance
     s5 = await initS5("https://s5.ninja", "hive", null);
     setState(() {}); // to update UI
   }
@@ -53,13 +57,19 @@ class _DemoState extends State<Demo> {
   void _submitCID() async {
     if (s5 != null) {
       setState(() {
-        cid = _controller.text;
+        cid = _cidController.text;
       });
     }
   }
 
   void _clearCache() async {
     cacheManager.clearCache();
+  }
+
+  void _clearImage() async {
+    setState(() {
+      cid = null;
+    });
   }
 
   @override
@@ -76,8 +86,15 @@ class _DemoState extends State<Demo> {
             ],
           ),
           TextField(
-            controller: _controller,
+            controller: _cidController,
             decoration: const InputDecoration(labelText: "CID: z2..."),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextField(
+            controller: _thumhashController,
+            decoration: const InputDecoration(labelText: "Thumbhash: "),
           ),
           const SizedBox(
             height: 10,
@@ -89,18 +106,25 @@ class _DemoState extends State<Demo> {
                   onPressed: _submitCID, child: const Text("Submit CID")),
               ElevatedButton(
                   onPressed: _clearCache, child: const Text("Clear Cache")),
+              ElevatedButton(
+                  onPressed: _clearImage,
+                  child: const Text("Clear loaded image"))
             ],
           ),
           const SizedBox(
             height: 10,
           ),
-          (cid != null && s5 != null)
-              ? CachedS5Image(
-                  cid: cid!,
-                  s5: s5!,
-                  cacheManager: cacheManager,
-                )
-              : Container(),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: (cid != null && s5 != null)
+                ? CachedS5Image(
+                    cid: cid!,
+                    s5: s5!,
+                    thumbhash: _thumhashController.text,
+                    cacheManager: cacheManager,
+                  )
+                : Container(),
+          ),
         ],
       ),
     );

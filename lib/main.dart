@@ -3,4 +3,3 @@
 library cached_s5_image;
 
 export 'src/cached_s5_image.dart';
-export 'src/cached_s5_image_manager.dart';
