@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Change package name to comply with pub.dev.
+
 ## 0.0.2
 
 - Moved caching to `cached_s5_manager`.

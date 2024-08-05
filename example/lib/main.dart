@@ -1,4 +1,4 @@
-import 'package:cached_s5_image/main.dart';
+import 'package:cached_s5_image/cached_s5_image.dart';
 import 'package:cached_s5_image_example/src/s5.dart';
 import 'package:cached_s5_manager/cached_s5_manager.dart';
 import 'package:flutter/material.dart';
