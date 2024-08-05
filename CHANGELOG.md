@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Include new package.
+
 ## 0.0.3
 
 - Change package name to comply with pub.dev.
