@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Chore: bump cached_s5_manager version.
+
 ## 0.0.5
 
 - Move demo to gif file.

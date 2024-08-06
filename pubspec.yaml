@@ -3,13 +3,13 @@ description: "Cached Image Provider for S5."
 repository: https://github.com/s5-dev/cached_s5_image
 homepage: https://github.com/s5-dev/cached_s5_image
 
-version: 0.0.5
+version: 0.0.6
 
 environment:
   sdk: ">=3.4.4 <4.0.0"
 
 dependencies:
-  cached_s5_manager: ^0.0.2
+  cached_s5_manager: ^1.1.0
   flutter:
     sdk: flutter
   flutter_thumbhash: ^0.1.0+1

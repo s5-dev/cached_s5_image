@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:cached_s5_image/src/cached_image_fetcher.dart';
 import 'package:cached_s5_manager/cached_s5_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_thumbhash/flutter_thumbhash.dart';
@@ -27,16 +26,16 @@ class CachedS5Image extends StatefulWidget {
 
 class CachedS5ImageState extends State<CachedS5Image> {
   ImageProvider? img;
-  CachedS5Manager cacheManager = CachedS5Manager();
+  late CachedS5Manager cacheManager;
   @override
   void initState() {
+    cacheManager = widget.cacheManager ?? CachedS5Manager(s5: widget.s5);
     _populateImageFromCID();
     super.initState();
   }
 
   _populateImageFromCID() async {
-    Uint8List imgBytes =
-        await getImageFromCID(widget.cid, widget.s5, cacheManager);
+    Uint8List imgBytes = await cacheManager.getBytesFromCID(widget.cid);
     setState(() {
       img = Image.memory(imgBytes).image;
     });
