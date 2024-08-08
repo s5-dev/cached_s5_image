@@ -1,3 +1,7 @@
+## 0.0.8
+
+- chore: swap dart:io for universal_io for web support
+
 ## 0.0.7
 
 - docs: Add link to s5 dart package.

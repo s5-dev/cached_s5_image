@@ -3,7 +3,7 @@ description: "Cached Image Provider for S5."
 repository: https://github.com/s5-dev/cached_s5_image
 homepage: https://github.com/s5-dev/cached_s5_image
 
-version: 0.0.7
+version: 0.0.8
 
 environment:
   sdk: ">=3.4.4 <4.0.0"
