@@ -36,22 +36,23 @@ class _DemoState extends State<Demo> {
       TextEditingController(text: "mtcJLYbGWGaPeYiLl4dndYaAdgdY");
   S5? s5;
   Logger logger = Logger();
-  late CachedS5Manager cacheManager;
+  CachedS5Manager? cacheManager;
   @override
   void initState() {
     _initS5();
-    _initCache();
+
     super.initState();
   }
 
-  void _initCache() async {
-    cacheManager.init();
+  Future<void> _initCache() async {
+    await cacheManager?.init();
   }
 
   void _initS5() async {
     // this is an EXAMPLE s5 node, use your own for maximum performance
-    s5 = await initS5("https://s5.ninja", "hive", null);
+    s5 = await initS5("https://s5.jptr.tech", "hive", null);
     cacheManager = CachedS5Manager(s5: s5!);
+    await _initCache();
     setState(() {}); // to update UI
   }
 
@@ -64,7 +65,7 @@ class _DemoState extends State<Demo> {
   }
 
   void _clearCache() async {
-    cacheManager.clear();
+    cacheManager?.clear();
   }
 
   void _clearImage() async {

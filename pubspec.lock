@@ -29,10 +29,10 @@ packages:
     dependency: "direct main"
     description:
       name: cached_s5_manager
-      sha256: f8403566c0a0bdb2610ac1b5a89aa80db0c48279ff4527fef454577155263e97
+      sha256: "092a4cc73cd2508f1c23d8638dd6e87ae18b394fe68e42ef094a03711d250a03"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.1"
   characters:
     dependency: transitive
     description:

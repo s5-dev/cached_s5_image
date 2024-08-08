@@ -1,3 +1,9 @@
+## 0.0.7
+
+- docs: Add link to s5 dart package.
+- docs: increase size of demo gif
+- chore: bump cached_s5_manager version
+
 ## 0.0.6
 
 - Chore: bump cached_s5_manager version.
