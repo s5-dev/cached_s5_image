@@ -18,7 +18,7 @@ dependencies:
   s5: ^0.2.0
   hive: ^2.2.3
   logger: ^2.4.0
-  cached_s5_manager: ^1.1.0
+  cached_s5_manager: ^1.2.2
   universal_io: ^2.2.2
 
 dev_dependencies:

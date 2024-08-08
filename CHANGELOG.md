@@ -1,3 +1,8 @@
+## 0.0.9
+
+- fix: disable file logger entirely on web
+- chore: bump cached_s5_manager version
+
 ## 0.0.8
 
 - chore: swap dart:io for universal_io for web support
